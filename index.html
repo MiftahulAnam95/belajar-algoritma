@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritma &amp; Struktur Data dari Nol</title>
+
+    <meta
+      name="description"
+      content="Belajar algoritma dan struktur data dari nol dengan bahasa sederhana, analogi kehidupan sehari-hari, visualisasi interaktif, dan latihan."
+    />
+    <meta name="author" content="AlgoDariNol" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Algoritma & Struktur Data dari Nol" />
+    <meta
+      property="og:description"
+      content="Tidak perlu jago matematika. Belajar algoritma & struktur data pelan-pelan lewat analogi, visualisasi, dan latihan interaktif."
+    />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <script>
+      // Dipakai untuk mendeteksi kegagalan memuat file JavaScript di hosting.
+      window.__ALGODARINOL_SIAP = false;
+
+      // Terapkan tema sebelum halaman digambar supaya tidak "berkedip" putih.
+      (function () {
+        try {
+          // Nilainya disimpan dalam bentuk JSON, jadi tanda kutipnya dibuang dulu.
+          var simpan = (localStorage.getItem("algodarinol:tema") || "").replace(/"/g, "");
+          if (simpan === "dark" || simpan === "light") {
+            document.documentElement.setAttribute("data-theme", simpan);
+          }
+        } catch (e) {
+          /* localStorage bisa diblokir, abaikan saja */
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#konten">Lompat ke konten utama</a>
+
+    <!-- Navbar diisi oleh js/script.js supaya sama di semua halaman -->
+    <header id="site-header" class="site-header"></header>
+
+    <!--
+      Konten awal sengaja tidak kosong. Kalau modul JavaScript gagal dimuat,
+      pengunjung tetap melihat status, bukan layar putih tanpa penjelasan.
+    -->
+    <main id="konten" class="app-main" tabindex="-1">
+      <section style="max-width:720px;margin:0 auto;padding:72px 20px;text-align:center">
+        <p style="font-size:40px;margin:0 0 12px" aria-hidden="true">🧠</p>
+        <h1 style="font:700 28px/1.3 system-ui,sans-serif;margin:0 0 12px">
+          AlgoDariNol sedang dimuat…
+        </h1>
+        <p style="font:400 16px/1.7 system-ui,sans-serif;color:#5c6575;margin:0">
+          Menyiapkan materi dan visualisasi interaktif.
+        </p>
+      </section>
+    </main>
+
+    <footer id="site-footer" class="site-footer"></footer>
+
+    <noscript>
+      <div style="max-width:720px;margin:24px auto;padding:20px;border:1px solid #e5e7eb;font-family:system-ui,sans-serif">
+        JavaScript sedang dinonaktifkan. Aktifkan JavaScript agar materi dan visualisasi bisa dibuka.
+      </div>
+    </noscript>
+
+    <script type="module" src="./js/script.js"></script>
+    <script>
+      // Module lokal biasanya selesai dalam hitungan milidetik. Jika delapan
+      // detik belum siap, kemungkinan folder js/ tidak ikut ter-upload.
+      window.setTimeout(function () {
+        if (window.__ALGODARINOL_SIAP) return;
+
+        var konten = document.getElementById("konten");
+        if (!konten) return;
+
+        konten.innerHTML =
+          '<section style="max-width:720px;margin:0 auto;padding:64px 20px;font-family:system-ui,sans-serif">' +
+          '<p style="font-size:36px;margin:0 0 12px" aria-hidden="true">⚠️</p>' +
+          '<h1 style="font-size:28px;line-height:1.3;margin:0 0 12px">Website belum berhasil dimuat</h1>' +
+          '<p style="line-height:1.7;color:#5c6575">File JavaScript tidak ditemukan atau tidak ikut dipublikasikan. ' +
+          'Pastikan folder <code>js</code>, <code>css</code>, dan <code>assets</code> berada satu tingkat dengan <code>index.html</code>. ' +
+          'Untuk GitHub Pages, gunakan workflow deployment yang tersedia di folder <code>.github/workflows</code>.</p>' +
+          '<button type="button" onclick="location.reload()" style="padding:11px 18px;border:0;border-radius:8px;background:#4f46e5;color:white;font:600 15px system-ui;cursor:pointer">Muat ulang</button>' +
+          '</section>';
+      }, 8000);
+    </script>
+  </body>
+</html>
